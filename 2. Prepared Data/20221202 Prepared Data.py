@@ -20,9 +20,10 @@ df['Text'] = df['v2'] + df['Unnamed: 2'] + df['Unnamed: 3'] + df['Unnamed: 4']
 
 df_clean = pd.DataFrame()
 df_clean['Text'] = df['Text']
-df_clean['Target'] = df['v1']
+df_clean['Target (Category)'] = df['v1']
 
 # df_clean.loc[df_clean['Target']=='spam', 'Target'] = 1 
 
-df_clean['Target'] = np.where(df_clean['Target'] == 'spam', 1, 0) # spam is 1 , no spam is 0
+df_clean['Target'] = np.where(df_clean['Target (Category)'] == 'spam', 1, 0) # spam is 1 , no spam is 0
 
+df_clean.to_csv('20221202 Processed Data.csv', index=False)
